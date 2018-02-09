@@ -18,9 +18,11 @@ public class ShapeCollector {
         return shapes.get(n);
     }
 
-    public void showFigures(){
+    public ArrayList<String> showFigures(){
+        ArrayList<String> result = new ArrayList<String>();
         for (Shape shape: shapes){
-            shape.getShapeName();
+             result.add(shape.getShapeName());
         }
+        return result;
     }
 }

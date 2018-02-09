@@ -1,6 +1,7 @@
 package com.kodilla.testing.shape;
 
 import org.junit.*;
+import java.util.ArrayList;
 
 public class ShapeCollectorTestSuite {
     private static int counter = 0;
@@ -67,8 +68,12 @@ public class ShapeCollectorTestSuite {
         collector.addFigure(triangle);
         collector.addFigure(square);
         //When
-        collector.showFigures();
+        ArrayList<String> test = collector.showFigures();
+        ArrayList<String> expected = new ArrayList<String>();
+        expected.add("koło");
+        expected.add("trójkąt");
+        expected.add("kwadrat");
         //Then
-
+        Assert.assertEquals(expected, test);
     }
 }
