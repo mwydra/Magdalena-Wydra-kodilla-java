@@ -34,9 +34,18 @@ public class CollectionTestSuite {
         for (int i = 1; i <= 15; i++){
             numbers.add(i);
         }
+        ArrayList<Integer> test = new ArrayList<Integer>();
+        test.add(2);
+        test.add(4);
+        test.add(6);
+        test.add(8);
+        test.add(10);
+        test.add(12);
+        test.add(14);
         //When
         ArrayList<Integer> result = exterminator.exterminate(numbers);
         //Then
         Assert.assertEquals(7, result.size());
+        Assert.assertEquals(test, result);
     }
 }
