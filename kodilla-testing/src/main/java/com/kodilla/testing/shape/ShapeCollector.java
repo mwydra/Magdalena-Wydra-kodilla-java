@@ -1,6 +1,6 @@
 package com.kodilla.testing.shape;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class ShapeCollector {
     private ArrayList<Shape> shapes = new ArrayList<Shape>();
@@ -18,11 +18,25 @@ public class ShapeCollector {
         return shapes.get(n);
     }
 
-    public ArrayList<String> showFigures(){
+    public List<String> showFigures(){
         ArrayList<String> result = new ArrayList<String>();
         for (Shape shape: shapes){
              result.add(shape.getShapeName());
         }
         return result;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ShapeCollector collector = (ShapeCollector) o;
+        return Objects.equals(shapes, collector.shapes);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(shapes);
     }
 }

@@ -1,7 +1,7 @@
 package com.kodilla.testing.shape;
 
 import org.junit.*;
-import java.util.ArrayList;
+import java.util.*;
 
 public class ShapeCollectorTestSuite {
     private static int counter = 0;
@@ -29,8 +29,9 @@ public class ShapeCollectorTestSuite {
         Circle circle = new Circle("koło");
         //When
         collector.addFigure(circle);
+        Shape result = collector.getFigure(0);
         //Then
-        Assert.assertEquals(circle, circle);
+        Assert.assertEquals(result, circle);
     }
 
     @Test
@@ -38,11 +39,12 @@ public class ShapeCollectorTestSuite {
         //Given
         ShapeCollector collector = new ShapeCollector();
         Triangle triangle = new Triangle("trójkąt");
-        collector.addFigure(triangle);
         //When
-        Shape figure = collector.getFigure(0);
+        collector.addFigure(triangle);
+        boolean result = collector.removeFigure(triangle);
         //Then
-        Assert.assertEquals(triangle, figure);
+        Assert.assertTrue(result);
+        Assert.assertEquals(0, collector.showFigures().size());
     }
 
     @Test
@@ -52,9 +54,9 @@ public class ShapeCollectorTestSuite {
         Square square = new Square("kwadrat");
         collector.addFigure(square);
         //When
-        boolean result = collector.removeFigure(square);
+        Shape result = collector.getFigure(0);
         //Then
-        Assert.assertTrue(result);
+        Assert.assertEquals(result, square);
     }
 
     @Test
@@ -68,7 +70,7 @@ public class ShapeCollectorTestSuite {
         collector.addFigure(triangle);
         collector.addFigure(square);
         //When
-        ArrayList<String> test = collector.showFigures();
+        List<String> test = collector.showFigures();
         ArrayList<String> expected = new ArrayList<String>();
         expected.add("koło");
         expected.add("trójkąt");

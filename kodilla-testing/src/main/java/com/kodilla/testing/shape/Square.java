@@ -2,7 +2,7 @@ package com.kodilla.testing.shape;
 
 public class Square implements Shape {
     private String name;
-    double a, b;
+    double a = 4, b = 7;
 
     public Square(String name) {
         this.name = name;

@@ -2,7 +2,7 @@ package com.kodilla.testing.shape;
 
 public class Circle implements Shape {
     private String name;
-    double r;
+    double r = 5;
 
     public Circle(String name) {
         this.name = name;
