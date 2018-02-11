@@ -11,12 +11,6 @@ public class AdvStatistics {
 
     public AdvStatistics(Statistics statistics) {
         this.statistics = statistics;
-        this.usersNumber = usersNumber;
-        this.postsQuantity = postsQuantity;
-        this.commentsQuantity = commentsQuantity;
-        this.postsPerUsersAv = postsPerUsersAv;
-        this.commentsPerUsersAv = commentsPerUsersAv;
-        this.commentsPerPostsAv = commentsPerPostsAv;
     }
 
     public void calculateAdvStatistics(Statistics statistics){
@@ -29,7 +23,7 @@ public class AdvStatistics {
     }
 
     public void ShowStatistics(){
-        System.out.println("Liczba użytkowników: " + usersNumber);
+        System.out.println("\nLiczba użytkowników: " + usersNumber);
         System.out.println("Liczba postów: " + postsQuantity);
         System.out.println("Liczba komentarzy: " + commentsQuantity);
         System.out.println("Srednia liczba postów na użytkownika: " + postsPerUsersAv);
