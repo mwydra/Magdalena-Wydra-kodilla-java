@@ -9,8 +9,7 @@ public class AdvStatistics {
     private double commentsPerUsersAv;
     private double commentsPerPostsAv;
 
-    public AdvStatistics(Statistics statistics) {
-        this.statistics = statistics;
+    public AdvStatistics() {
     }
 
     public void calculateAdvStatistics(Statistics statistics){
