@@ -12,7 +12,6 @@ public class StreamMain {
     public static void main(String[] args) {
 
         Forum theForum = new Forum();
-        LocalDate now = LocalDate.now();
         Map<Integer, ForumUser> resultMap = theForum.getUserList().stream()
                 .filter(sex -> sex.getSex() == 'M')
                 .filter(birthDetails -> Period.between(birthDetails.getBirthDetails(), LocalDate.now()).getYears() >= 20)
