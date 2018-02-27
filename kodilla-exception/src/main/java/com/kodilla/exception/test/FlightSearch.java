@@ -11,17 +11,12 @@ public class FlightSearch {
         airport.put("Warsaw, Chopin", true);
         airport.put("Paris, Charles de Gaulle", true);
         airport.put("Palma de Mallorca", true);
-        boolean found = false;
 
-        if (airport.get(flight.getArrivalAirport())) {
+        if (airport.get(flight.getArrivalAirport()) != null) {
             System.out.println("Your airport is " + flight.getArrivalAirport().toString());
-            found = true;
         }
+        throw new RouteNotFoundException();
 
-        if (airport.get(flight.getArrivalAirport()) == false) {
-            throw new RouteNotFoundException();
-        }
-        return found;
     }
 
     public static void main(String[] args){
