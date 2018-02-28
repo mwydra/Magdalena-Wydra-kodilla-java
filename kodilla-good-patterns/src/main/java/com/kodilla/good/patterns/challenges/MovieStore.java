@@ -33,7 +33,6 @@ class MovieStore {
 
         String result = movieStore.getMovies().entrySet().stream()
                 .flatMap(entry -> entry.getValue().stream())
-                .map(s -> s)
                 .collect(Collectors.joining("!"));
 
         System.out.println(result);
