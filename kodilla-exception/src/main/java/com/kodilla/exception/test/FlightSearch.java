@@ -6,25 +6,25 @@ import java.util.Map;
 
 public class FlightSearch {
 
-    public boolean findFilght(Flight flight) throws RouteNotFoundException {
+    public Boolean findFilght(Flight flight) throws RouteNotFoundException {
         Map<String, Boolean> airport = new HashMap<String, Boolean>();
         airport.put("Warsaw, Chopin", true);
         airport.put("Paris, Charles de Gaulle", true);
-        airport.put("Palma de Mallorca", true);
+        airport.put("Palma de Mallorca", false);
 
-        if (airport.get(flight.getArrivalAirport()) != null) {
-            System.out.println("Your airport is " + flight.getArrivalAirport().toString());
+        if (airport.containsKey(flight.getArrivalAirport())) {
+            return airport.get(flight.getArrivalAirport());
         }
         throw new RouteNotFoundException();
 
     }
 
     public static void main(String[] args){
-        Flight flight = new Flight("Warsaw, Chopin", "Palma de Mallorca");
+        Flight flight = new Flight("Warsaw, Chopin", "Paris, Orly");
         FlightSearch flightSearch = new FlightSearch();
 
         try {
-            flightSearch.findFilght(flight);
+            System.out.println("Flight possibility: " + flightSearch.findFilght(flight));
         }
         catch (Exception e) {
             System.out.println("Flight not found.");
