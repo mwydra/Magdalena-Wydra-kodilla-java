@@ -9,7 +9,7 @@ public class ExtraFoodShopOrder implements OrderProcessor{
     public Order process() {
         int orderID = order.getOrderID() + 1;
         boolean isOrder = true;
-        System.out.println("Your order for " + orderRequest.getProductName() + " " + orderRequest.getQuantity() + " was send to provider " + provider.getProviderName());
+        System.out.println("Your order for " + orderRequest.getProductName() + " " + orderRequest.getQuantity() + " was send to provider " + provider.getProviderName() + ".\n");
         return new Order(orderID, isOrder);
     }
 }
