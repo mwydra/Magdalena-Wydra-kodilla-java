@@ -6,22 +6,20 @@ public class Application {
         City cityFrom = new City("Warszawa");
         City cityTo = new City("Lublin");
 
-        FindFlightFrom findFlightFrom = new FindFlightFrom();
+        FindFlight findFlight = new FindFlight();
+
         System.out.print("From " + city.getName() + " you can fly to: \n");
-        for(City result : findFlightFrom.find(city)){
+        for(City result : findFlight.findFrom(city)){
             System.out.println(result.getName());
         }
 
-        FindFlightTo findFlightTo = new FindFlightTo();
         System.out.print("\nTo " + city.getName() + " you can fly from: \n");
-        for(City result : findFlightTo.find(city)){
+        for(City result : findFlight.findTo(city)){
             System.out.println(result.getName());
         }
 
-        FindFlightThrough findFlightThrough = new FindFlightThrough();
-        //System.out.println(findFlightThrough.find(cityFrom, cityTo).size());
         System.out.print("\nTo " + cityTo.getName() + " you can fly from " + cityFrom.getName() + " through:\n");
-        for(City result : findFlightThrough.find(cityFrom, cityTo)){
+        for(City result : findFlight.findThrough(cityFrom, cityTo)){
             System.out.println(result.getName());
         }
 
