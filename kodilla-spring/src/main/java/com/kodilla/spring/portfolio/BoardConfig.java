@@ -16,24 +16,21 @@ public class BoardConfig {
     TaskList theList;
 
     @Bean("toDoList")
-    @Scope("prototype")
     public TaskList addToDoList(){
         return new TaskList();
     }
 
-    @Bean
-    @Scope("prototype")
+    @Bean("inProgressList")
     public TaskList addInProgressList(){
         return new TaskList();
     }
 
-    @Bean
-    @Scope("prototype")
+    @Bean("doneList")
     public TaskList addDoneList(){
         return new TaskList();
     }
 
-    @Bean
+    @Bean("Board")
     public Board addBoard(){
         return new Board(addToDoList(), addInProgressList(), addDoneList());
     }
