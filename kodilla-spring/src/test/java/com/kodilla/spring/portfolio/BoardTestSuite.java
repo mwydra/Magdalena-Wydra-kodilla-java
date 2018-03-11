@@ -25,8 +25,8 @@ public class BoardTestSuite {
         //When
         board.printList();
         //Then
-        Assert.assertEquals("[Moduł 11, Moduł 12]", toDoList.getTasks().toString());
-        Assert.assertEquals("[Moduł 10]", inProgressList.getTasks().toString());
-        Assert.assertEquals("[Moduł 9, Moduł 8, Moduł 7]", doneList.getTasks().toString());
+        Assert.assertEquals("[Moduł 11, Moduł 12]", board.getToDoList().getTasks().toString());
+        Assert.assertEquals("[Moduł 10]", board.getInProgressList().getTasks().toString());
+        Assert.assertEquals("[Moduł 9, Moduł 8, Moduł 7]", board.getDoneList().getTasks().toString());
     }
 }

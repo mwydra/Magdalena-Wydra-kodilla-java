@@ -11,6 +11,18 @@ public class Board {
         this.doneList = doneList;
     }
 
+    public TaskList getToDoList() {
+        return toDoList;
+    }
+
+    public TaskList getInProgressList() {
+        return inProgressList;
+    }
+
+    public TaskList getDoneList() {
+        return doneList;
+    }
+
     public void printList(){
         System.out.println("Do zrobienia: " + toDoList.getTasks().toString() + "\nW trakcie: " + inProgressList.getTasks().toString() + "\nZrobione: " + doneList.getTasks().toString());
     }
