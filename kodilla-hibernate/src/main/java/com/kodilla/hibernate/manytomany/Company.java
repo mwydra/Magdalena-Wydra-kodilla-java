@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NamedNativeQuery(
-        name = "Company.retrieveName",
-        query = "SELECT * FROM COMPANIES" +
-                "WHERE COMPANY_NAME LIKE :FIRSTTHREELETTERS",
+        name = "Company.retrieveNameByFirstThreeLetters",
+        query = "SELECT * FROM COMPANIES " +
+                "WHERE SUBSTRING(company_name, 1, 3) = :FIRSTTHREELETTERS",
         resultClass = Company.class
 )
 @Entity

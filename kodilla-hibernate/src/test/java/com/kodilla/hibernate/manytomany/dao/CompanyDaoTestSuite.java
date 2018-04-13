@@ -104,7 +104,7 @@ public class CompanyDaoTestSuite {
 
         //When
         List<Employee> employees = employeeDao.retrieveSurname("Kovalsky");
-        List<Company> companies = companyDao.retrieveName("Sof%");
+        List<Company> companies = companyDao.retrieveNameByFirstThreeLetters("Sof");
 
         //Then
         try {
@@ -113,11 +113,11 @@ public class CompanyDaoTestSuite {
         } finally {
             //CleanUp
             companyDao.delete(softwareMachineId);
-            companyDao.delete(dataMaestersId);
+/*            companyDao.delete(dataMaestersId);
             companyDao.delete(greyMatterId);
             employeeDao.delete(johnSmith);
             employeeDao.delete(stephanieClarckson);
-            employeeDao.delete(lindaKovalsky);
+            employeeDao.delete(lindaKovalsky);*/
         }
     }
 }
