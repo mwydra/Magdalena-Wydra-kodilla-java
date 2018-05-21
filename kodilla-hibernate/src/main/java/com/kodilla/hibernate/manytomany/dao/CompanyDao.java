@@ -13,4 +13,7 @@ import java.util.List;
 public interface CompanyDao extends CrudRepository<Company, Integer> {
     @Query(nativeQuery = true)
     List<Company> retrieveNameByFirstThreeLetters(@Param("FIRSTTHREELETTERS") String threeletters);
+
+    @Query(nativeQuery = true)
+    List<Company> searchByFragment(@Param("FRAGMENT") String fragment);
 }

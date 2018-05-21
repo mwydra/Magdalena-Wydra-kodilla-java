@@ -5,11 +5,20 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedNativeQuery(
-        name = "Company.retrieveNameByFirstThreeLetters",
-        query = "SELECT * FROM COMPANIES " +
+@NamedNativeQueries({
+        @NamedNativeQuery(
+                name = "Company.retrieveNameByFirstThreeLetters",
+                query = "SELECT * FROM COMPANIES " +
                 "WHERE SUBSTRING(company_name, 1, 3) = :FIRSTTHREELETTERS",
-        resultClass = Company.class
+                resultClass = Company.class
+        ),
+        @NamedNativeQuery(
+                name = "Company.searchByFragment",
+                query = "SELECT * FROM COMPANIES " +
+                "WHERE COMPANY_NAME LIKE :FRAGMENT",
+                resultClass = Company.class
+        )
+}
 )
 @Entity
 @Table(name = "COMPANIES")
