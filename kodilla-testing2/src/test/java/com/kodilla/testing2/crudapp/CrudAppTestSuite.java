@@ -1,11 +1,10 @@
 package com.kodilla.testing2.crudapp;
 
 import com.kodilla.testing2.config.WebDriverConfig;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.Random;
@@ -47,9 +46,9 @@ public class CrudAppTestSuite {
 
         while (!driver.findElement(By.xpath("//select[1]")).isDisplayed());
 
-        driver.findElements(By.xpath("//form[@class=\".datatable__row\"]")).stream()
+        driver.findElements(By.xpath("//form[@class=\"datatable__row\"]")).stream()
                 .filter(anyForm ->
-                    anyForm.findElement(By.xpath(".//p[@class=\".datatable__field-value\"]"))
+                    anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]"))
                         .getText().equals(taskName))
                 .forEach(theForm -> {
                     WebElement selectElement = theForm.findElement(By.xpath(".//select[1]"));
@@ -64,13 +63,20 @@ public class CrudAppTestSuite {
     }
 
     private void deleteCruddAppTestTask(String taskName) throws InterruptedException {
-        driver.navigate().refresh();
+        try {
+            // Add a wait timeout before this statement to make
+            // sure you are not checking for the alert too soon.
+            Alert alt = driver.switchTo().alert();
+            alt.accept();
+        } catch(NoAlertPresentException noe) {
+            // No alert found on page, proceed with test.
+        }
 
         while (!driver.findElement(By.xpath("//select[1]")).isDisplayed());
 
-        driver.findElements(By.xpath("//form[@class=\".datatable__row\"]")).stream()
+        driver.findElements(By.xpath("//form[@class=\"datatable__row\"]")).stream()
                 .filter(anyForm ->
-                        anyForm.findElement(By.xpath(".//p[@class=\".datatable__field-value\"]"))
+                        anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]"))
                                 .getText().equals(taskName))
                 .forEach(theForm -> {
                     WebElement buttonDelete =
@@ -87,8 +93,8 @@ public class CrudAppTestSuite {
         deleteCruddAppTestTask(taskName);
     }
 
-//    @After
-//    public void cleanUpAfterTest(){
-//        driver.close();
-//    }
+    @After
+    public void cleanUpAfterTest(){
+        driver.close();
+    }
 }
